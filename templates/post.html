@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+  <h1>{{ post.header }}</h1>
+  <ul class="list-unstyled list-inline">
+    <li><span class="glyphicon glyphicon-user"></span> {{ post.signature }}</li>
+    <li><span class="glyphicon glyphicon-time"></span> {{ post.updated_at|datetime }}</li>
+  </ul>
+  {{ post.body|e|markdown|safe }}
+  <hr>
+  {% if allow_edit %}
+  <p><a href="/{{ post_id }}/edit/">Edit</a></p>
+  {% endif %}
+</div><!-- /.container -->
+{% endblock %}
