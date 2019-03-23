@@ -21,10 +21,10 @@ def save(post_id, post):
 
 def create(header, signature, body, user_uuid):
     post_id = str(uuid.uuid4())
-    now_date = int(datetime.datetime.now().timestamp())
+    cur_timestamp = int(datetime.datetime.now().timestamp())
     post = {
-        "created_at": now_date,
-        "updated_at": now_date,
+        "created_at": cur_timestamp,
+        "updated_at": cur_timestamp,
         "user_uuid": user_uuid,
         "header": header,
         "signature": signature,
@@ -38,8 +38,8 @@ def update(post_id, header, signature, body):
     post = read(post_id)
     if not post:
         return None
-    now_date = int(datetime.datetime.now().timestamp())
-    post["updated_at"] = now_date
+    cur_timestamp = int(datetime.datetime.now().timestamp())
+    post["updated_at"] = cur_timestamp
     post["header"] = header
     post["signature"] = signature
     post["body"] = body

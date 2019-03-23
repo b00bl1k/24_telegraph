@@ -88,8 +88,8 @@ def markdown_filter(text):
 
 
 @app.template_filter("datetime")
-def datetime_filter(value, format="%d-%m-%Y"):
-    return datetime.datetime.fromtimestamp(value).strftime(format)
+def datetime_filter(timestamp, date_format="%d-%m-%Y"):
+    return datetime.datetime.fromtimestamp(timestamp).strftime(date_format)
 
 
 if __name__ == "__main__":
